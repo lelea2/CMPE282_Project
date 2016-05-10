@@ -11,16 +11,6 @@ head
 
   link(href='/system/public/img/icons/favicon.ico', rel='shortcut icon', type='image/x-icon')
 
-  meta(property='fb:app_id', content='APP_ID')
-  meta(property='og:title', content='#{appName} - #{title}')
-  meta(property='og:description', content='MEAN - A Modern Stack: MySQL, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).')
-  meta(property='og:type', content='website')
-  meta(property='og:url', content='APP_URL')
-  meta(property='og:image', content='APP_LOGO')
-  meta(property='og:site_name', content='MEAN - A Modern Stack')
-  meta(property='fb:admins', content='APP_ADMIN')
-
-
   if(process.env.NODE_ENV == 'production')
     link(rel='stylesheet', href='/bundle/bundle.min.css')
     each bowerCSSAsset in settings.assetsapp.core.css['bower_components/build/css/dist.min.css']
@@ -31,10 +21,5 @@ head
     each cssAsset in settings.cssAssets
       link(rel='stylesheet', href='#{cssAsset}')
 
-
-
   //if lt IE 9
     script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
-
-
-
