@@ -1,7 +1,5 @@
 (function(){
 'use strict';
-
-
 angular
     .module('mean.users')
     .factory('MeanUser',MeanUser);

@@ -6,11 +6,11 @@ head
 
   title= appName+' - '+title
   meta(http-equiv='Content-type', content='text/html;charset=UTF-8')
-  meta(name="keywords", content="node.js, express, mongoose, mongodb, angularjs")
-  meta(name="description", content="MEAN - A Modern Stack: MySQL, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).")
+  meta(name="keywords", content="SSO Integration")
+  meta(name="description", content="CMPE282_Project")
 
   link(href='/system/public/img/icons/favicon.ico', rel='shortcut icon', type='image/x-icon')
-  
+
   meta(property='fb:app_id', content='APP_ID')
   meta(property='og:title', content='#{appName} - #{title}')
   meta(property='og:description', content='MEAN - A Modern Stack: MySQL, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).')
@@ -21,7 +21,7 @@ head
   meta(property='fb:admins', content='APP_ADMIN')
 
 
-  if(process.env.NODE_ENV == 'production')   
+  if(process.env.NODE_ENV == 'production')
     link(rel='stylesheet', href='/bundle/bundle.min.css')
     each bowerCSSAsset in settings.assetsapp.core.css['bower_components/build/css/dist.min.css']
       link(rel='stylesheet', href='/#{bowerCSSAsset}')
@@ -30,11 +30,11 @@ head
       link(rel='stylesheet', href='/#{bowerCSSAsset}')
     each cssAsset in settings.cssAssets
       link(rel='stylesheet', href='#{cssAsset}')
-  
+
 
 
   //if lt IE 9
     script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
-    
-  
-  
+
+
+

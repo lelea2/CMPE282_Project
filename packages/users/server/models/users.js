@@ -23,13 +23,13 @@ module.exports = function(sequelize, DataTypes) {
       },
       hashedPassword: DataTypes.STRING,
       provider: DataTypes.STRING,
-      salt: DataTypes.STRING,
+      salt: DataTypes.STRING/*,
       facebookUserId: DataTypes.INTEGER,
       twitterUserId: DataTypes.INTEGER,
       twitterKey: DataTypes.STRING,
       twitterSecret: DataTypes.STRING,
       github: DataTypes.STRING,
-      openId: DataTypes.STRING
+      openId: DataTypes.STRING*/
     },
     {
       instanceMethods: {

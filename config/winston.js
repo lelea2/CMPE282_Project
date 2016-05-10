@@ -1,7 +1,5 @@
 'use strict';
-/**
- * Created by Junaid Anwar on 5/28/15.
- */
+
 var winston = require('winston');
 var logger = new (winston.Logger)();
 
