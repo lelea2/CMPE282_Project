@@ -21,14 +21,11 @@ a{
 .page-header h1{
     margin-left: 50px;
     color:#5e5e5e;
-}
-.page-header h2{
-    color:#5e5e5e;
+    overflow: hidden;
 }
 
-#myBtn {
-    background-color: #2aabd2;
-    color: #fff;
+small{
+    margin-left: 60%;
 }
 
 /** Leftside **/
