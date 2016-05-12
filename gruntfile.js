@@ -147,7 +147,7 @@ module.exports = function(grunt) {
     } else {
         grunt.registerTask('default', ['clean','csslint','jshint', 'concurrent']);
     }
-    grunt.registerTask('lint', ['clean','csslint','jshint', 'uglity', 'cssmin']);
+    grunt.registerTask('lint', ['clean','csslint','jshint', 'uglify', 'cssmin']);
     grunt.registerTask('annotate',['clean','ngAnnotate']);
 
     //Test task.
