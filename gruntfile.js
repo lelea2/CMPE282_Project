@@ -74,7 +74,7 @@ module.exports = function(grunt) {
                },
              files: '<%= assets.core.js %>'
            },
-          terget: {
+          target: {
                options: {
                  compress: true,
                  quoteStyle:1
