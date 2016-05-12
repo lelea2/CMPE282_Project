@@ -5,7 +5,7 @@ var chai = require('chai'),
     expect = chai.expect,
     _ = require('lodash'),
     winston = require('../../../config/winston'),
-    User = require('../../../app/models/user');
+    User = require('../../../packages/users/server/models/users');
 
 chai.should();
 
@@ -42,10 +42,10 @@ describe('User model', function() {
 
     describe('data', function() {
         it('should have username', function() {
-            userModel.fields.username.should.exist.and.equal('string');
+            userModel.fields.username.should.exist;
         });
         it('should have email', function() {
-            userModel.fields.email.should.exist.and.equal('string');
+            userModel.fields.email.should.exist;
         });
         it('should have hashedPassword', function() {
             userModel.fields.hashedPassword.should.exist.and.equal('string');

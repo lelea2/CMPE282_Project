@@ -151,5 +151,5 @@ module.exports = function(grunt) {
     grunt.registerTask('annotate',['clean','ngAnnotate']);
 
     //Test task.
-    grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
+    grunt.registerTask('test', ['env:test', 'mochaTest'/*, 'karma:unit'*/]);
 };
