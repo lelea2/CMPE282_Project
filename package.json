@@ -14,8 +14,8 @@
   },
   "scripts": {
     "start": "node node_modules/grunt-cli/bin/grunt",
-    "test": "node node_modules/grunt-cli/bin/grunt test > test.tap",
-    "lint": "node node_modules/grunt-cli/bin/grunt lint > checkstyle-result.xml",
+    "test": "node node_modules/grunt-cli/bin/grunt test",
+    "lint": "node node_modules/grunt-cli/bin/grunt lint",
     "postinstall": "bower install"
   },
   "dependencies": {
