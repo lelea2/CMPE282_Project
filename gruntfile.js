@@ -142,12 +142,12 @@ module.exports = function(grunt) {
     //Making grunt default to force in order not to break the project.
     grunt.option('force', true);
     //Default task(s).
-      if (process.env.NODE_ENV === 'production') {
-          grunt.registerTask('default', ['clean','ngAnnotate','uglify','cssmin', 'concurrent']);
-      }else{
-          grunt.registerTask('default', ['clean','csslint','jshint', 'concurrent']);
-      }
-
+    if (process.env.NODE_ENV === 'production') {
+        grunt.registerTask('default', ['clean','ngAnnotate','uglify','cssmin', 'concurrent']);
+    } else {
+        grunt.registerTask('default', ['clean','csslint','jshint', 'concurrent']);
+    }
+    grunt.registerTask('lint', ['clean','csslint','jshint', 'uglity', 'cssmin']);
     grunt.registerTask('annotate',['clean','ngAnnotate']);
 
     //Test task.
