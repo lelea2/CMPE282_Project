@@ -65,21 +65,31 @@ exports.router = {
         message = 'error: ' + err.message + '\n';
       }
       message += 'response: ' + JSON.stringify(response);
-
-      if (err) {
+      if (err) { //display message error
         res.send(message);
         return;
       }
-
       // Later, if the access token is expired it can be refreshed.
       authenticationContext.acquireTokenWithRefreshToken(response.refreshToken, sampleParameters.clientId, sampleParameters.clientSecret, resource, function(refreshErr, refreshResponse) {
-        if (refreshErr) {
-          message += 'refreshError: ' + refreshErr.message + '\n';
+        if (refreshResponse.accessToken) {
+          res.cookie('t', refreshResponse.accessToken);
+          res.cookie('userId', refreshResponse.userId);
+          res.redirect('/dashboard');
         }
-        message += 'refreshResponse: ' + JSON.stringify(refreshResponse);
-
-        res.send(message);
       });
     });
+  },
+
+  dashboard: function(req, res) {
+    var userId = req.cookies.userId;
+    var t = req.cookies.t;
+    if (!t || !userId) {
+      res.redirect('/');
+      return;
+    }
+    res.render('dashboard', {
+      userEmail: userId
+    });
   }
+
 };

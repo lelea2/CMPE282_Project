@@ -45,7 +45,7 @@ route.get('/index.html', function(req, res){
 route.get('/', router.index);
 route.get('/auth', router.auth);
 route.get('/getAToken', router.getAToken);
-
+route.get('/dashboard', router.dashboard);
 
 app.use('/', route);
 
