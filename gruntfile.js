@@ -66,7 +66,7 @@ module.exports = function (grunt) {
             src: paths.css
         }
     });
-    require('load-grunt-tasks')(grunt);
+    //require('load-grunt-tasks')(grunt);
     grunt.loadNpmTasks('assemble');
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-clean');
