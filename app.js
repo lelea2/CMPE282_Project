@@ -32,10 +32,7 @@ app.use(compress({
     },
     level: 9
 }));
-
-if (app.get('env') === 'development'){
-    app.use(express.static(__dirname + '/public', {maxAge: 86400000}));
-}
+app.use(express.static(__dirname + '/public', {maxAge: 86400000}));
 
 var route = express.Router();
 
