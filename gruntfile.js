@@ -67,11 +67,16 @@ module.exports = function (grunt) {
         }
     });
     //require('load-grunt-tasks')(grunt);
+    //Load NPM tasks
+    require('load-grunt-tasks')(grunt);
+
+    //Making grunt default to force in order not to break the project.
+    grunt.option('force', true);
     grunt.loadNpmTasks('assemble');
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
+    grunt.registerTask('lint', ['csslint','jshint']);
     grunt.registerTask('build', ['clean', 'assemble', 'copy', 'replace']);
-    grunt.registerTask('lint', [/*'csslint','jshint',*/ 'clean', 'assemble', 'copy', 'replace']);
 };
