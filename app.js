@@ -65,7 +65,7 @@ if (cluster.isMaster && !module.parent) {
       console.log('worker ' + worker.process.pid + ' died');
     });
 } else {
-    server = app.listen(process.env.PORT || 3000, '127.0.0.1', function () {
+    server = app.listen(process.env.PORT || 3000, function () {
         var host = server.address().address,
             port = server.address().port;
         console.log('App listening at http://%s:%s with worker id %s', host, port, cluster.worker.id);

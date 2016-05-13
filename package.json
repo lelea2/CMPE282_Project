@@ -10,7 +10,8 @@
     "lint": "node node_modules/grunt-cli/bin/grunt lint"
   },
   "engines": {
-    "node": "^0.12.x"
+    "node": "^4.2.x",
+    "npm": "^2.14.x"
   },
   "dependencies": {
     "adal-node": "0.1.19",
