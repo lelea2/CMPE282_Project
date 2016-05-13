@@ -19,17 +19,17 @@
       {{> head }}
 
       <div class="placeholder">
-        {{> dashboard }}
-        <h6>Employees info</h6>
+        {{> orders }}
+        <h6>Orders info</h6>
         <table class="table">
-          {{> headlines}}
+          {{> orderheadlines}}
           {{#each data}}
           <tbody>
-            <td class="employeeNum">{{employeeNumber}}</td>
-            <td class="lastname">{{lastName}}</td>
-            <td class="firstname">{{firstName}}</td>
-            <td class="email">{{email}}</td>
-            <td class="ext">{{extension}}</td>
+            <td class="orderNumber">{{orderNumber}}</td>
+            <td class="orderDate">{{orderDate}}</td>
+            <td class="shipDate">{{shippedDate}}</td>
+            <td class="status">{{status}}</td>
+            <td class="customerName">{{customerName}}</td>
             <td class="phone">{{phone}}</td>
             <td class="address">{{address}}</td>
             <td class="city">{{city}}</td>
@@ -39,7 +39,9 @@
           {{/each}}
         </table>
       </div>
+
       <hr>
+
       {{> footer }}
 
   </body>

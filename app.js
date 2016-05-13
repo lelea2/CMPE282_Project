@@ -43,6 +43,8 @@ route.get('/', router.index);
 route.get('/auth', router.auth);
 route.get('/getAToken', router.getAToken);
 route.get('/dashboard', router.dashboard);
+route.get('/orders', router.orders);
+route.get('/logout', router.logout);
 
 app.use('/', route);
 

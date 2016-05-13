@@ -6,6 +6,7 @@ var session = require('cookie-session');
 var fs = require('fs');
 var crypto = require('crypto');
 var AuthenticationContext = require('adal-node').AuthenticationContext;
+var mysql      = require('mysql');
 
 var sampleParameters = {
   tenant : 'daomaikhanh1988yahoo.onmicrosoft.com',
@@ -18,6 +19,7 @@ var sampleParameters = {
 
 var authorityUrl = sampleParameters.authorityHostUrl + '/' + sampleParameters.tenant;
 var redirectUri = 'https://cmpe282-project.herokuapp.com/getAToken';
+//var redirectUri = 'http://localhost:3000/getAToken';
 var resource = '00000002-0000-0000-c000-000000000000';
 
 var templateAuthzUrl = 'https://login.windows.net/' + sampleParameters.tenant + '/oauth2/authorize?response_type=code&client_id=<client_id>&redirect_uri=<redirect_uri>&state=<state>&resource=<resource>';
@@ -30,6 +32,13 @@ function createAuthorizationUrl(state) {
   authorizationUrl = authorizationUrl.replace('<resource>', resource);
   return authorizationUrl;
 }
+
+var connection = mysql.createConnection({
+  host     : 'cmpe282.ctupfrwq16vb.us-west-1.rds.amazonaws.com',
+  user     : 'alphabet',
+  password : 'alphabet',
+  database : 'classicmodels'
+});
 
 exports.router = {
   index: function(req, res) {
@@ -87,9 +96,44 @@ exports.router = {
       res.redirect('/');
       return;
     }
-    res.render('dashboard', {
-      userEmail: userId
+    //select employees.*, offices.* from employees LEFT JOIN offices on employees.officeCode=offices.officeCode
+    connection.query('select employees.*, offices.* from employees LEFT JOIN offices on employees.officeCode=offices.officeCode', function(err, rows, fields) {
+      if (err) {
+        res.status(500).send(err)
+      } else {
+        res.render('dashboard', {
+          userEmail: userId,
+          data: rows
+        });
+      }
     });
+  },
+
+  orders: function(req, res) {
+    var userId = req.cookies.userId;
+    var t = req.cookies.t;
+    if (!t || !userId) {
+      res.redirect('/');
+      return;
+    }
+    //select orders.*, customers.* from orders LEFT JOIN customers on orders.customerNumber=customers.customerNumber;
+    connection.query('select orders.*, customers.* from orders LEFT JOIN customers on orders.customerNumber=customers.customerNumber', function(err, rows, fields) {
+      if (err) {
+        res.status(500).send(err)
+      } else {
+        console.log(JSON.stringify(rows));
+        res.render('orders', {
+          userEmail: userId,
+          data: rows
+        });
+      }
+    });
+  },
+
+  logout: function(req, res) {
+    res.cookie('t', null);
+    res.cookie('userId', null);
+    res.redirect('/')
   }
 
 };
